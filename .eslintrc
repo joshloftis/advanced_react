@@ -31,6 +31,12 @@
         "argsIgnorePattern": "res|next|^err"
       }
     ],
+    "no-unused-expressions": [
+      2,
+      {
+        "allowTaggedTemplates": true
+      }
+    ],
     "arrow-body-style": [
       2,
       "as-needed"
