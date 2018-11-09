@@ -119,6 +119,9 @@
       }
     ],
     "react/prefer-stateless-function": 0,
+    "react/prop-types": [2, {
+      "ignore": ["children"]
+    }],
     "jsx-a11y/label-has-for": 0
   }
 }
