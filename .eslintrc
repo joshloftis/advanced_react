@@ -105,10 +105,11 @@
     ],
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/anchor-is-valid": [
-      "error",
+      "warn",
       {
-        "components": ["Link"],
-        "specialLink": ["to"]
+        "aspects": [
+          "invalidHref"
+        ]
       }
     ],
     "react/prefer-stateless-function": 0,
