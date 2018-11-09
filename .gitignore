@@ -45,3 +45,4 @@ public/uploads/*
 
 dist
 build
+.next/
