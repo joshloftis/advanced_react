@@ -26,7 +26,7 @@ const ItemsList = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 60px;
   max-width: ${props => props.theme.maxWith};
-  magin: 0 auto;
+  margin: 0 auto;
 `;
 
 class Items extends Component {
@@ -35,7 +35,6 @@ class Items extends Component {
       <Center>
         <Query query={ALL_ITEMS_QUERY}>
           {({ data, error, loading }) => {
-            console.log(data);
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error: {error.message}</p>;
             return (
