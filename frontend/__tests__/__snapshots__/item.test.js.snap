@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Item /> renders and matches the snapshot 1`] = `
+exports[`<Item/> renders and matches the snapshot 1`] = `
 <ItemStyles__Item>
   <img
     alt="A Cool Item"
@@ -23,7 +23,7 @@ exports[`<Item /> renders and matches the snapshot 1`] = `
     </Link>
   </Title>
   <PriceTag>
-    $50
+    $40
   </PriceTag>
   <p>
     This item is really cool!

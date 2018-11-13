@@ -8,7 +8,7 @@ describe('formatMoney Function', () => {
     expect(formatMoney(40)).toEqual('$0.40');
   });
 
-  it('leaves cents for whole dollars', () => {
+  it('leaves cents off for whole dollars', () => {
     expect(formatMoney(5000)).toEqual('$50');
     expect(formatMoney(100)).toEqual('$1');
     expect(formatMoney(50000000)).toEqual('$500,000');
@@ -18,6 +18,6 @@ describe('formatMoney Function', () => {
     expect(formatMoney(5012)).toEqual('$50.12');
     expect(formatMoney(101)).toEqual('$1.01');
     expect(formatMoney(110)).toEqual('$1.10');
-    expect(formatMoney(383920292920)).toEqual('$3,839,202,929.20');
+    expect(formatMoney(20893749823749823749)).toEqual('$208,937,498,237,498,240.00');
   });
 });

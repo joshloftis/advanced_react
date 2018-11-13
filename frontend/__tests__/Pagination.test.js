@@ -1,9 +1,9 @@
 import { mount } from 'enzyme';
-import toJSON from 'enzyme-to-json';
 import wait from 'waait';
+import toJSON from 'enzyme-to-json';
 import Router from 'next/router';
-import { MockedProvider } from 'react-apollo/test-utils';
 import Pagination, { PAGINATION_QUERY } from '../components/Pagination';
+import { MockedProvider } from 'react-apollo/test-utils';
 
 Router.router = {
   push() {},
@@ -19,8 +19,8 @@ function makeMocksFor(length) {
           itemsConnection: {
             __typename: 'aggregate',
             aggregate: {
-              __typename: 'count',
               count: length,
+              __typename: 'count',
             },
           },
         },
@@ -29,8 +29,8 @@ function makeMocksFor(length) {
   ];
 }
 
-describe('<Pagination />', () => {
-  it('displays a loading message', async () => {
+describe('<Pagination/>', () => {
+  it('displays a loading message', () => {
     const wrapper = mount(
       <MockedProvider mocks={makeMocksFor(1)}>
         <Pagination page={1} />
@@ -39,7 +39,7 @@ describe('<Pagination />', () => {
     expect(wrapper.text()).toContain('Loading...');
   });
 
-  it('renders pagination fro 18 items', async () => {
+  it('renders pagination for 18 items', async () => {
     const wrapper = mount(
       <MockedProvider mocks={makeMocksFor(18)}>
         <Pagination page={1} />
@@ -48,7 +48,7 @@ describe('<Pagination />', () => {
     await wait();
     wrapper.update();
     expect(wrapper.find('.totalPages').text()).toEqual('5');
-    const pagination = wrapper.find('[data-pagination="pagination"]');
+    const pagination = wrapper.find('div[data-test="pagination"]');
     expect(toJSON(pagination)).toMatchSnapshot();
   });
 
@@ -63,8 +63,7 @@ describe('<Pagination />', () => {
     expect(wrapper.find('a.prev').prop('aria-disabled')).toEqual(true);
     expect(wrapper.find('a.next').prop('aria-disabled')).toEqual(false);
   });
-
-  it('disbales next button on last page', async () => {
+  it('disables next button on last page', async () => {
     const wrapper = mount(
       <MockedProvider mocks={makeMocksFor(18)}>
         <Pagination page={5} />
@@ -75,7 +74,6 @@ describe('<Pagination />', () => {
     expect(wrapper.find('a.prev').prop('aria-disabled')).toEqual(false);
     expect(wrapper.find('a.next').prop('aria-disabled')).toEqual(true);
   });
-
   it('enables all buttons on a middle page', async () => {
     const wrapper = mount(
       <MockedProvider mocks={makeMocksFor(18)}>
